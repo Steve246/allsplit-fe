@@ -8,6 +8,13 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
+import { DepsProvider } from './shared/context/DependencyContext';
+import { serviceFactory } from './services/ServiceFactory';
+import {apiClientFactory} from "./shared/ApiClientFactory"
+import {clientInstance} from "./shared/AxiosClient"
+
+const apiClient = apiClientFactory(clientInstance);
+const services = serviceFactory(apiClient)
 
 
 const theme = extendTheme({
@@ -21,11 +28,15 @@ const theme = extendTheme({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    </ChakraProvider>
+    <DepsProvider services={services}>
+      <ChakraProvider theme={theme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
+
+    </DepsProvider>
+   
   </React.StrictMode>
 );
 

@@ -14,6 +14,8 @@ import {
   createIcon,
 } from '@chakra-ui/react'
 import AppUpload from '../../shared/components/uploadImage/AppUpload'
+import LoadingScreen from '../../shared/components/loading/LoadingScreen'
+import UseUploadPage from './useUploadPage'
 
 const UploadPage = () => {
 
@@ -29,6 +31,8 @@ const UploadPage = () => {
           />
         ),
       })
+
+    const {} = UseUploadPage()
 
     return (
         <>
@@ -95,6 +99,9 @@ const UploadPage = () => {
                 </Stack>
                 </Stack>
             </Container>
+
+
+            {isLoading && <LoadingScreen/>}
 
         </>
     )
