@@ -6,7 +6,8 @@ import { useNavigate } from "react-router";
 
 const UseUploadPage = (props) => {
 
-    const [isLoading, setIsLoading] = useState(false); // jaga2 kalau perlu loading
+    const [isLoading, setIsLoading] = useState(false); 
+    // jaga2 kalau perlu loading
     const [file, setFile] = useState('');
 
     const {uploadService} = useDependency()
@@ -14,7 +15,8 @@ const UseUploadPage = (props) => {
     const [submit, setSubmit] = useState(0);
 
     const handleChangeFile = (e) => {
-        setFile(e.target.value)
+        const file = e.target.files[0];
+        setFile(file)
     }
 
 
@@ -32,9 +34,13 @@ const UseUploadPage = (props) => {
         setIsLoading(true)
         try {
             const response = await uploadService.postUpload(file)
-            if (response.responseMessage === "Success") {
+
+            console.log("ini response --> ", response.responseMessage)
+            if (response.responseCode === 200) {
                 console.log("Ini berhasil --> ",response);
                 navigate('/result-page', {replace : true})
+            } else {
+                console.log("ini failed -->", response)
             }
         }
         finally {
@@ -47,11 +53,8 @@ const UseUploadPage = (props) => {
         file,
         isLoading,
         handleChangeFile,
-        handleSubmit
+        handleSubmit,
     }
-
-    
-
 
 }
 

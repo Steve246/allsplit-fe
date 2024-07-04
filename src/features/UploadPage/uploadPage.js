@@ -32,7 +32,13 @@ const UploadPage = () => {
         ),
       })
 
-    const {} = UseUploadPage()
+    const {
+       
+        isLoading,
+        file,
+        handleChangeFile,
+        handleSubmit
+    } = UseUploadPage()
 
     return (
         <>
@@ -63,7 +69,11 @@ const UploadPage = () => {
                     alignSelf={'center'}
                     position={'relative'}>
 
-                    <AppUpload/>
+                    <AppUpload 
+                        uploadedFile={file}
+                        handleFileChange={handleChangeFile}
+                        handleSubmit={handleSubmit}
+                    />
                     {/* <Button
                     colorScheme={'green'}
                     bg={'green.400'}
