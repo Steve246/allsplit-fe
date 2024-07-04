@@ -13,6 +13,9 @@ import { serviceFactory } from './services/ServiceFactory';
 import {apiClientFactory} from "./shared/ApiClientFactory"
 import {clientInstance} from "./shared/AxiosClient"
 
+import './index.css';
+
+
 const apiClient = apiClientFactory(clientInstance);
 const services = serviceFactory(apiClient)
 

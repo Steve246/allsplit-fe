@@ -40,9 +40,13 @@ const UploadPage = () => {
         handleSubmit
     } = UseUploadPage()
 
+
+    const arrowColor = useColorModeValue('gray.800', 'gray.300');
+
     return (
         <>
-            <Container maxW={'3xl'}>
+            { isLoading ? <LoadingScreen/> :
+                <Container maxW={'3xl'}>
                 <Stack
                 as={Box}
                 textAlign={'center'}
@@ -90,7 +94,7 @@ const UploadPage = () => {
                     <Box>
                     <Icon
                         as={Arrow}
-                        color={useColorModeValue('gray.800', 'gray.300')}
+                        color={arrowColor}
                         w={71}
                         position={'absolute'}
                         right={-71}
@@ -108,10 +112,10 @@ const UploadPage = () => {
                     </Box>
                 </Stack>
                 </Stack>
-            </Container>
+            </Container>}
 
 
-            {isLoading && <LoadingScreen/>}
+            
 
         </>
     )
