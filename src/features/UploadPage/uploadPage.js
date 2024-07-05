@@ -46,7 +46,7 @@ const UploadPage = () => {
     return (
         <>
             { isLoading ? <LoadingScreen/> :
-                <Container maxW={'3xl'}>
+            <Container maxW={'3xl'}>
                 <Stack
                 as={Box}
                 textAlign={'center'}
