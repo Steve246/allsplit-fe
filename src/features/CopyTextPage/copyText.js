@@ -48,7 +48,7 @@ const CopyTextPage = () => {
 
   return (
     <VStack spacing={4} p={5} align="start">
-      <Heading size="lg">Recepient Text</Heading>
+      <Heading size="lg">Recepient Result - Please Copy</Heading>
 
       {/* Display the formatted response text in a box */}
       <Box

@@ -12,6 +12,7 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  Link,
 } from '@chakra-ui/react'
 import AppUpload from '../../shared/components/uploadImage/AppUpload'
 import LoadingScreen from '../../shared/components/loading/LoadingScreen'
@@ -33,13 +34,11 @@ const UploadPage = () => {
       })
 
     const {
-       
         isLoading,
         file,
         handleChangeFile,
         handleSubmit
     } = UseUploadPage()
-
 
     const arrowColor = useColorModeValue('gray.800', 'gray.300');
 
@@ -78,19 +77,7 @@ const UploadPage = () => {
                         handleFileChange={handleChangeFile}
                         handleSubmit={handleSubmit}
                     />
-                    {/* <Button
-                    colorScheme={'green'}
-                    bg={'green.400'}
-                    rounded={'full'}
-                    px={6}
-                    _hover={{
-                        bg: 'green.500',
-                    }}>
-                    Get Started
-                    </Button> */}
-                    {/* <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-                    Learn more
-                    </Button> */}
+
                     <Box>
                     <Icon
                         as={Arrow}
@@ -111,12 +98,19 @@ const UploadPage = () => {
                     </Text>
                     </Box>
                 </Stack>
+                {/* Buy Me a Coffee Section */}
+                <Box mt={10}>
+                  <Text fontSize="lg" color="gray.600">
+                    If you like this app, consider supporting me with a coffee!
+                  </Text>
+                  <Link href="https://www.nihbuatjajan.com/lingstrsteven" isExternal>
+                    <Button colorScheme="yellow" mt={4}>
+                      Buy Me a Coffee ☕
+                    </Button>
+                  </Link>
+                </Box>
                 </Stack>
             </Container>}
-
-
-            
-
         </>
     )
 }

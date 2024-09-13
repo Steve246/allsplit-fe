@@ -162,7 +162,7 @@ export default function Multistep() {
       title: 'Recepient Details Created.',
       description: "We've created your recepient detail for you.",
       status: 'success',
-      duration: 10000,
+      duration: 5000,
       isClosable: true,
     });
     // Example API call: axios.post('/api/submit', finalData);
