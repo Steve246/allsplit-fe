@@ -1,4 +1,4 @@
-export const uploadService = ({doPostForm}) => {
+export const uploadService = ({doPostForm, doPost}) => {
     const postUpload = async (file) => {
         try {
             // Create a new FormData object
@@ -9,7 +9,7 @@ export const uploadService = ({doPostForm}) => {
             
             // Use the doPost function with the FormData object
             return await doPostForm({
-                url: '/image',
+                url: '/image_ocr',
                 data: formData,
             });
         } catch (e) {
@@ -17,5 +17,17 @@ export const uploadService = ({doPostForm}) => {
         }
     };
 
-    return { postUpload };
+
+    const postTransaction = async(data) => {
+        try {
+            return await doPost({
+                url: '/convertDataToText',
+                data: data,
+            });
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    return { postUpload, postTransaction };
 }

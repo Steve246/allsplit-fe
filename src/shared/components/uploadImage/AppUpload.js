@@ -73,8 +73,6 @@ const AppUpload = ({
             onChange={handleFileChange}
           />
 
-        
-
         </Center>
 
          <Button onClick={handleSubmit}/>

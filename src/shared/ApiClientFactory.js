@@ -1,13 +1,13 @@
 export const apiClientFactory = (client) => {
-    // const doPost = async ({url = '', data = null}) => {
-    //     // console.log(data, url);
-    //     try {
-    //         const response = await client.post(url, data);
-    //         return response.data
-    //     } catch (e) {
-    //         throw e;
-    //     }
-    // }
+    const doPost = async ({url = '', data = null}) => {
+        // console.log(data, url);
+        try {
+            const response = await client.post(url, data);
+            return response.data
+        } catch (e) {
+            throw e;
+        }
+    }
 
     const doGet = async ({url  = '', data = null}) => {
         console.log('data',data);
@@ -40,5 +40,5 @@ export const apiClientFactory = (client) => {
 
    
 
-    return {doPostForm, doGet}
+    return {doPostForm, doGet, doPost}
 }

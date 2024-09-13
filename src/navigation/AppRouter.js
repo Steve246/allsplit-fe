@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import UploadPage from "../features/UploadPage/uploadPage";
 import Multistep from "../features/ResultPage/resultPage";
 
+import CopyTextPage from "../features/CopyTextPage/copyText";
+
 
 // TODO: main page depan (termasuk buat upload)
 
@@ -26,9 +28,12 @@ const AppRouter = () => {
     return (
     <Routes>
         {/* <Route path="/" element={<SingleUploadImage />} /> */}
-        <Route index element={<AppUpload/>}/>
-        <Route path="/front-page" element={<UploadPage/>}/>
+        {/* <Route index element={<AppUpload/>}/> */}
+        {/* <Route path="/front-page" element={<UploadPage/>}/> */}
+
+        <Route index element={<UploadPage/>}/>
         <Route path="/result-page" element={<Multistep/>}/>
+        <Route path="/copy-page" element={<CopyTextPage/>}/>
     </Routes>
     );
   }

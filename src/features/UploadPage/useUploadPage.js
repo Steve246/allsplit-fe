@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 
 const UseUploadPage = (props) => {
 
-    const [isLoading, setIsLoading] = useState(true); 
+    const [isLoading, setIsLoading] = useState(false); 
     // jaga2 kalau perlu loading
     const [file, setFile] = useState('');
 
@@ -35,10 +35,13 @@ const UseUploadPage = (props) => {
         try {
             const response = await uploadService.postUpload(file)
 
-            console.log("ini response --> ", response.responseMessage)
+            
             if (response.message === 200) {
                 console.log("Ini berhasil --> ",response);
-                navigate('/result-page', {replace : true})
+                // navigate('/result-page', {replace : true})
+
+                navigate('/result-page', { replace: true, state: { data: response.data, message: response.message } });
+
             } else {
                 console.log("ini failed -->", response)
             }
